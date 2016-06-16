@@ -26,7 +26,6 @@ services:
       - /usr/src/app
       - /usr/src/app/static
     links:
-      - db
-    depends_on:
-      - db
+      - db:mysql
+    env_file: .env
     command: /usr/src/app/uwsgi/init.sh
