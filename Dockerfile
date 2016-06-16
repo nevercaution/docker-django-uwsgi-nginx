@@ -1,0 +1,12 @@
+FROM python:3.4-onbuild
+
+# Add Environment Variables
+
+ENV MYSQL_USER admin
+ENV MYSQL_DATABASE test
+ENV MYSQL_ROOT_PASSWORD admin
+ENV MYSQL_PASSWORD password
+ENV MYSQL_CONTAINER_NAME mysql
+ENV MYSQL_PORT 3306
+
+

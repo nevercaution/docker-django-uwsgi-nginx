@@ -1,0 +1,32 @@
+version: '2'
+services:
+  nginx:
+    restart: always
+    build: ./nginx/
+    ports:
+      - "80:80"
+    volumes:
+      - /www/static
+    volumes_from:
+      - web
+    links:
+     - web:web
+  db:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3306"
+    env_file: .env
+  web:
+    restart: always
+    build: .
+    expose:
+      - "8000"
+    volumes:
+      - /usr/src/app
+      - /usr/src/app/static
+    links:
+      - db
+    depends_on:
+      - db
+    command: /usr/src/app/uwsgi/init.sh

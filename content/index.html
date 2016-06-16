@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      test web app
+    </title>
+  </head>
+  <body>
+    <div class="panel">
+      <form id="content_form" method="post">{% csrf_token %}
+          <div>
+              title : <input type="text" name="title">
+          </div>
+          <div>
+              content : <input type="text" name="content">
+          </div>
+          <button type="submit">send</button>
+      </form>
+      <table class="table">
+        <thead>
+          <th>title</th>
+          <th>content</th>
+          <th>create tile</th>
+        </thead>
+        <tbody>
+          {% for item in contents %}
+            <tr>
+              <td>{{ item.title }}</td>
+              <td>{{ item.content }}</td>
+              <td>{{ item.create_dt|date:"Y/m/d" }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
