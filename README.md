@@ -9,4 +9,4 @@ How to Run.
   `docker run -it dockerdjangouwsginginx_web python manage.py migrate`  
   Done!  
 
-  
+docker automated build test  
